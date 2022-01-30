@@ -1,0 +1,26 @@
+{
+  "name": "grade-management-system",
+  "version": "1.0.0",
+  "description": "Grade Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shashdan/Grade-Management-System.git"
+  },
+  "author": "Shashikant Dangi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shashdan/Grade-Management-System/issues"
+  },
+  "homepage": "https://github.com/shashdan/Grade-Management-System#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

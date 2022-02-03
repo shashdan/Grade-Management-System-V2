@@ -1,1 +1,32 @@
-[]
+[
+    {
+        "name": "Shashikant Dangi",
+        "branch": "Computer Science",
+        "fathersname": "Sushant Singh Dangi",
+        "number": "+919821275102",
+        "emailid": "dangishashikant@gmail.com",
+        "admissionnumber": "U20CS072",
+        "image": "yash.jpg",
+        "id": "shash123"
+    },
+    {
+        "name": "Yash Shah",
+        "branch": "Computer Science",
+        "fathersname": "Yogesh Kumar Shah",
+        "number": "9460744274",
+        "emailid": "u20cs119@coed.svnit.ac.in",
+        "admissionnumber": "U20CS119",
+        "image": "yash.jpg",
+        "id": "yash123"
+    },
+    {
+        "name": "Mudit Nema",
+        "branch": "Computer Science",
+        "fathersname": "Motilal Nema",
+        "number": "8959706457",
+        "emailid": "u20cs112@coed.svnit.ac.in",
+        "admissionnumber": "U20CS112",
+        "image": "nema.jpg",
+        "id": "mudit123"
+    }
+]

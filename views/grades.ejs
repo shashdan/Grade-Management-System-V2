@@ -1,17 +1,18 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="styles/MainPage Style.css">
+  <link rel="stylesheet" href="/styles/MainPage Style.css">
   <title>Grades</title>
 </head>
 
 <body>
-  
-    <h1>Welcome, Shashikant DANGI</h1>
+
+  <% const username = user.id %> 
+    <h1>Welcome, <%= username %> </h1>
     <ul>
-      <li><a href="/profile">Profile</a></li>
-      <li><a class="active" href="/grades">Grades</a></li>
-      <li><a href="/schedule">Schedule</a></li>
+      <li><a href="/<%= username %>/profile">Profile</a></li>
+      <li><a class="active" href="/<%= username %>/grades">Grades</a></li>
+      <li><a href="/<%= username %>/schedule">Schedule</a></li>
     </ul>
     <div class="divbody">
 

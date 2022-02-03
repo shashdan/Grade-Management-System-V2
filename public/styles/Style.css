@@ -5,7 +5,8 @@ h1{
     text-align: center;
     font-size: 45px;
     background-color: black;
-    border-radius: 55px
+    border-radius: 55px;
+    margin:10px;
 }
 body{
     background-image: url(/images/bg.jpg);
@@ -15,14 +16,14 @@ body{
 div{
     font-size: 1.1rem;
     font-family: 'Noto Sans JP', sans-serif;
-    height: 260px;
+    height: 280px;
     width:400px;
     margin: auto;
     background-color: rgb(148, 150, 150);
     text-align: center;
     padding: 15px;
     border-radius: 15px;
-    margin-top: 170px;
+    margin-top: 70px;
 }
 input[type = text]{
     margin: 13px 5px 0px 0px;

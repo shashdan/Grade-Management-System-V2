@@ -1,41 +1,42 @@
 <html>
       <head>
-        <link rel="stylesheet" href="styles/ProfilePage CSS.css">
+        <link rel="stylesheet" href="/styles/ProfilePage CSS.css">
       </head>
         <title>Profile Page</title>
     <body>
-        <h1>Welcome, Shashikant DANGI</h1>
+      <% const username = user.id %> 
+        <h1>Welcome, <%= username %></h1>
     <ul>
-      <li><a class="active" href="/profile">Profile</a></li>
-      <li><a href="/grades">Grades</a></li>
-      <li><a href="/schedule">Schedule</a></li>
+      <li><a class="active" href="/<%= username%>/profile">Profile</a></li>
+      <li><a href="/<%= username%>/grades">Grades</a></li>
+      <li><a href="/<%= username%>/schedule">Schedule</a></li>
     </ul>
 
     <div class="outer divbody">
       <div class="inner1" >
-        <img id="profile" src="/images/yash.jpg" alt="">
+        <img id="profile" src="/images/<%= user.image %>" alt="">
       </div>
       <div class="inner2" >
-        <p><strong>Shashikant Dangi</strong></p>
-        <p class = "branch">Computer Science</p>
+        <p><strong><%= user.name%></strong></p>
+        <p class = "branch"><%= user.branch%></p>
       </div>
     </div>
     <table>
       <tr>
         <th>Admission Number:</th>
-        <td>U20CS072</td>
+        <td><%= user.admissionnumber%></td>
       </tr>
       <tr>
         <th>Father's Name:</th>
-        <td>Sushant Singh Dangi</td>
+        <td><%= user.fathersname %></td>
       </tr>
       <tr>
         <th>Email Id: </th>
-        <td>23802020@coed.svnit.ac.in</td>
+        <td><%= user.emailid%></td>
       </tr>
       <tr>
         <th>Mobile Number:</th>
-        <td>9821275102</td>
+        <td><%= user.number%></td>
       </tr>
     </table>
     </body>

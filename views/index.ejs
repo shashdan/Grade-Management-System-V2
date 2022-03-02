@@ -9,45 +9,18 @@
     <h1>Welcome to the SVNIT Grade Management System!</h1>
         <div>
             Login
-            <form>
+            <form action="/" method="post">
                 <label for="username"><b>Username</b></label>
                 <input id="username" type="text" placeholder="Enter Username" name="username" required>
     
                 <label for="password"><b>Password</b></label>
                 <input id="password" type="password" placeholder="Enter Password" name="password" required>
-
-                <span id="captcha">
-                    <span id="discap"></span>
-                    <button onclick="reload();" > <img id="capimg" src="images/refresh.png" alt="">  </button>
-                </span>
-                <br>
-                <label for="cap" ><b>Captcha</b></label>
-                <input id="cap" type="text" placeholder="Enter the captcha" name="captcha" required>
-    
+                <input type="submit">
             </form>
-            <button id='btn' onclick = "check();">Submit</button>
+            
             <br>
             <a href="/contact">Contact us</a>
             <a href="/admin">Admin</a>
         </div>
-
-    <script>
-        var x = document.getElementById('discap').innerHTML = Math.floor(Math.random()*89999 + 10000)
-        function check() {
-            var username = document.getElementById('username').value;
-            var pass = document.getElementById('password').value;
-
-            if (document.getElementById('cap').value == x) {   
-                location.replace(`/${username}/profile`)
-            }
-            else {
-                alert("Wrong Password/Captcha. Please enter a valid password or correct captcha and try again.")
-            }
-        }
-        function reload(){
-            var x = document.getElementById('discap').innerHTML = Math.floor(Math.random()*89999 + 10000)
-        }
-    </script>
 </body>
-
 </html>

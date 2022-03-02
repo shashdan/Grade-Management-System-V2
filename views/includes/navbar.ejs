@@ -1,0 +1,37 @@
+<ul>
+  <li><a class="active" href="/admin">Home</a></li>
+  <li><a href="/admin/create">Create User</a></li>
+  <li><a href="/admin/modify">Modify User</a></li>
+  <li><a href="/admin/grades">Grades</a></li>
+  <li>
+    <form action="/admin/logout" method="post">
+      <input type="submit" value="Logout">
+    </form>
+    
+</ul>
+
+<style>
+  ul, input[type = submit] {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, input[type = submit] {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: #111;
+  }
+</style>

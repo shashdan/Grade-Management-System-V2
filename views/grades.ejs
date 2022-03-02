@@ -1,21 +1,12 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="/styles/MainPage Style.css" />
+    <title>Grades</title>
+  </head>
 
-<head>
-  <link rel="stylesheet" href="/styles/MainPage Style.css">
-  <title>Grades</title>
-</head>
-
-<body>
-
-  <% const username = user.id %> 
-    <h1>Welcome, <%= username %> </h1>
-    <ul>
-      <li><a href="/<%= username %>/profile">Profile</a></li>
-      <li><a class="active" href="/<%= username %>/grades">Grades</a></li>
-      <li><a href="/<%= username %>/schedule">Schedule</a></li>
-    </ul>
+  <body>
+    <%- include('./includes/sidebar') %>
     <div class="divbody">
-
       <table>
         <tr>
           <th>Course</th>
@@ -77,7 +68,7 @@
                 <p>Internal: 10</p>
                 <p>Presentation: 10</p>
               </div>
-            </div>  
+            </div>
           </td>
           <td class="xyz">1</td>
         </tr>
@@ -125,6 +116,5 @@
         </tr>
       </table>
     </div>
-</body>
-
+  </body>
 </html>

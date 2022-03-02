@@ -1,0 +1,45 @@
+<% const username = user.admission_number %>
+<h1>Welcome, <%= username %></h1>
+<ul>
+  <li><a class="active" href="/<%= username%>/profile">Profile</a></li>
+  <li><a href="/<%= username%>/grades">Grades</a></li>
+  <li><a href="/<%= username%>/schedule">Schedule</a></li>
+  <li>
+    <form action="/logout" method="post">
+      <input type="submit" value="Logout" />
+    </form>
+  </li>
+</ul>
+
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 10%;
+    background-color: #f1f1f1;
+    height: 35%;
+    overflow: auto;
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    top: 120px;
+  }
+
+  li a{
+    display: block;
+    color: #000;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a.active {
+    background-color: #626060;
+    color: white;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+</style>

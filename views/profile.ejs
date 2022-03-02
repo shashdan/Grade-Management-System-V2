@@ -4,14 +4,7 @@
       </head>
         <title>Profile Page</title>
     <body>
-      <% const username = user.id %> 
-        <h1>Welcome, <%= username %></h1>
-    <ul>
-      <li><a class="active" href="/<%= username%>/profile">Profile</a></li>
-      <li><a href="/<%= username%>/grades">Grades</a></li>
-      <li><a href="/<%= username%>/schedule">Schedule</a></li>
-    </ul>
-
+      <%- include('./includes/sidebar') %> 
     <div class="outer divbody">
       <div class="inner1" >
         <img id="profile" src="/images/<%= user.image %>" alt="">
@@ -24,11 +17,11 @@
     <table>
       <tr>
         <th>Admission Number:</th>
-        <td><%= user.admissionnumber%></td>
+        <td><%= user.admission_number%></td>
       </tr>
       <tr>
         <th>Father's Name:</th>
-        <td><%= user.fathersname %></td>
+        <td><%= user.father_name %></td>
       </tr>
       <tr>
         <th>Email Id: </th>
@@ -36,7 +29,7 @@
       </tr>
       <tr>
         <th>Mobile Number:</th>
-        <td><%= user.number%></td>
+        <td><%= user.mobile_number%></td>
       </tr>
     </table>
     </body>

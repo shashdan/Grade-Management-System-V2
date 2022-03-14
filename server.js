@@ -26,6 +26,4 @@ app.use('/admin', require('./routes/admin'))
 app.use('/:id', require('./routes/users'))
 app.use('/', require('./routes/default'))
 
-
-
 app.listen(3000)

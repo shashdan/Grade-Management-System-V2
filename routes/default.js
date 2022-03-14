@@ -45,15 +45,17 @@ router.post('/', async function (req, res) {
     }
 })
 
-app.post('/logout', function (req, res) {
+router.post('/logout', function (req, res) {
     req.session.user = null
     req.session.isAuthenticated = false
     req.session.isAdmin = false
     res.redirect('/')
 })
 
-router.use(function (req, res) {
-    res.redirect('/')
-})
+// router.use(function (req, res, error) {
+//     if (error){
+//         res.redirect('/')
+//     }
+// })
 
 module.exports = router

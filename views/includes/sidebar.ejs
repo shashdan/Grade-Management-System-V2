@@ -1,12 +1,11 @@
 <% const username = user.admission_number %>
 <h1>Welcome, <%= username %></h1>
 <ul>
-  <li><a class="active" href="/<%= username%>/profile">Profile</a></li>
+  <li><a href="/<%= username%>/profile">Profile</a></li>
   <li><a href="/<%= username%>/grades">Grades</a></li>
-  <li><a href="/<%= username%>/schedule">Schedule</a></li>
   <li>
     <form action="/logout" method="post">
-      <input type="submit" value="Logout" />
+      <input type="submit" value="Log Out" />
     </form>
   </li>
 </ul>
@@ -18,7 +17,7 @@
     padding: 0;
     width: 10%;
     background-color: #f1f1f1;
-    height: 35%;
+    height: 28%;
     overflow: auto;
     position: fixed;
     font-family: Arial, Helvetica, sans-serif;
@@ -39,6 +38,20 @@
   }
 
   li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  input[type=submit]{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    width: 100%;
+    padding:10px;
+    padding-left: 17px;
+    border: none;
+    text-align: left;
+  }
+
+  input[type=submit]:hover{
     background-color: #555;
     color: white;
   }

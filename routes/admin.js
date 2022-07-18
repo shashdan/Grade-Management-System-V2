@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.get('/', function (req, res) {
     if (!req.session.isAdmin) {
-        return res.redirect('/')
+        res.redirect('/')
     }
     else {
         return res.render('admin')
@@ -19,6 +19,15 @@ router.get('/create', function (req, res) {
     }
     else {
         return res.render('createuser')
+    }
+})
+
+router.get('/courses', function (req, res) {
+    if (!req.session.isAdmin) {
+        return res.redirect('/')
+    }
+    else {
+        return res.render('courses')
     }
 })
 
@@ -65,7 +74,7 @@ router.post('/modifyselect', function (req, res) {
     })
 })
 
-router.post('/delete', async function(req,res){
+router.post('/delete', async function (req, res) {
     const a = await database.query('DELETE FROM users WHERE admission_number = ?', [[req.session.selectedUser]])
     const b = await database.query('DELETE FROM login_info WHERE username = ?', [[req.session.selectedUser]])
     req.session.selectedUser = null
@@ -79,8 +88,24 @@ router.get('/grades', async function (req, res) {
         return res.redirect('/')
     }
     else {
-        return res.render('updategrades')
+        const [users] = await database.query('SELECT * FROM users')
+        if (req.session.selectedUser) {
+            const admissionnumber = req.session.selectedUser
+            const [grades] = await database.query('SELECT courseid, coursename, grade FROM grades NATURAL JOIN courses WHERE studentid = ?' , [[admissionnumber]])
+            return res.render('updategrades', {users:users, grades:grades, admissionnumber: admissionnumber })
+        }
+        else {
+            return res.render('updategrades', {users:users, grades:null, admissionnumber: null })
+        }
     }
+})
+
+router.post('/updategrades', function (req, res) {
+    const admission_number = req.body.admission_number;
+    req.session.selectedUser = admission_number;
+    req.session.save(function () {
+        return res.redirect('/admin/grades')
+    })
 })
 
 router.post('/create', function (req, res) {
@@ -100,6 +125,28 @@ router.post('/logout', function (req, res) {
     req.session.isAdmin = false
     req.session.selectedUser = null
     return res.redirect('/')
+})
+
+router.post('/createcourse', function (req, res) {
+    const courseid = req.body.courseid
+    const coursename = req.body.coursename
+    const coursecoordinator = req.body.coursecoordinator
+    database.query('INSERT INTO courses VALUES (?)', [[courseid, coursename, coursecoordinator]])
+    return res.redirect('/admin')
+})
+
+router.post('/changegrades', function (req, res) {
+    const user = req.body.userid.trim()
+    for (let property in req.body){
+        if (property.length === 3){
+            const id = parseInt(property.trim(), 10)
+            const value = parseInt(req.body[property].trim(), 10)
+            console.log(id, value)
+            database.query('UPDATE grades SET grade = ? WHERE courseid = ? AND studentid = ?', [[value], [id], [user]])
+        }    
+    }
+    req.session.selectedUser = null
+    return res.redirect('/admin/grades')
 })
 
 module.exports = router

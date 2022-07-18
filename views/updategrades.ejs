@@ -10,7 +10,63 @@
     <title>Update Grades</title>
 </head>
 <body>
-    <%- include('./includes/navbar') %> 
-    Update the grades of a student
+    <%-include('./includes/navbar')%> 
+    <div style="margin-left: 20px;">
+        <h2 style="text-align: center; margin-top: 10px;">Enter Grades</h2>
+    <form action="/admin/updategrades" method="post">
+        <select name = "admission_number">
+            <option selected disabled>Choose a student</option>
+            <% for (userIn of users) { %>
+             <option value="<%= userIn.admission_number %>"><%= userIn.admission_number  %> </option>
+            <% } %>
+        </select>
+        <input type="submit">
+    </form>
+        <br>
+              <% if (grades != null && grades.length > 0) { %>
+                <form action="/admin/changegrades" method="post">
+                    <table>
+                        <tr>
+                            <th>Course</th>
+                            <th>Grades</th>
+                          </tr>
+                    <% for(grade of grades) { %>
+                        <tr>
+                            <td><%= grade.coursename %></td>
+                            <td>
+                                <input type="text" placeholder="<%= grade.grade %>" value="<%=grade.grade%>" name = "<%= grade.courseid %> %> ">
+                                </td>
+                        </tr>
+                      <% } %>
+                    </table>
+                    <br>
+                    <input type = hidden name = "userid" value = "<%=admissionnumber%>">
+                    <input type="submit" value="Update Grades">
+                </form>
+                
+              <% } %>
+
+              <%if (grades != null && grades.length === 0) { %>
+                <p>Sorry, no grades were found for this student</p>
+                <% }%>
+               
+        <style>
+            table{
+                width: 50%;
+            }
+            table, th,td{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            td, th{
+                padding:5px;
+                text-align: center;
+            }
+            input[type= "text"]{
+                border:none;
+                text-align: center;
+                width: 100%;
+            }
+        </style>
 </body>
 </html>

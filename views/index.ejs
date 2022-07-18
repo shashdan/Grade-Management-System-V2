@@ -8,6 +8,7 @@
 <body>
     <h1>Welcome to the SVNIT Grade Management System!</h1>
     <div>
+        
             Login
             <form action="/" method="post">
                 <label for="username"><b>Username</b></label>
@@ -19,4 +20,10 @@
             </form>
 </body>
 </div>
+<div class = "errordiv">
+    <% if (error === true) { %>
+        <p class = "error">There was an error in logging in. Please check the username and/or password you entered is correct and try again.</p>
+       <% } %>
+</div>
+
 </html>

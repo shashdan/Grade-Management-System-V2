@@ -83,3 +83,19 @@ h3{
     position: relative;
     top: 5px;
 }
+
+.error{
+    font-size: 15px;
+    background-color: rgb(239, 97, 97);
+    border-radius: 100px;
+    padding:15px;
+}
+
+.errordiv{
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: auto;
+    background-color: transparent;
+    text-align: center;
+}

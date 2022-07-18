@@ -7,114 +7,22 @@
   <body>
     <%- include('./includes/sidebar') %>
     <div class="divbody">
-      <table>
-        <tr>
-          <th>Course</th>
-          <th class="xyz">Grades</th>
-          <th class="xyz">Absences</th>
-        </tr>
-        <tr>
-          <td>Mathematics II</td>
-          <td class="xyz">
-            <div class="dropdown">
-              <button class="dropbtn">89</button>
-              <div class="dropdown-content">
-                <p>Midsem: 20</p>
-                <p>Endsem: 49</p>
-                <p>Internal: 10</p>
-                <p>Tutorial: 10</p>
-              </div>
-            </div>
-          </td>
-          <td class="xyz">2</td>
-        </tr>
-        <tr>
-          <td>Web Programming</td>
-          <td class="xyz">
-            <div class="dropdown">
-              <button class="drop">82</button>
-              <div class="dropdown-content">
-                <p>Midsem: 22</p>
-                <p>Endsem: 41</p>
-                <p>Internal: 9</p>
-                <p>Project: 10</p>
-              </div>
-            </div>
-          </td>
-          <td class="xyz">3</td>
-        </tr>
-        <tr>
-          <td>Engineering Mechanics</td>
-          <td class="xyz">
-            <div class="dropdown">
-              <button class="dropbtn">86</button>
-              <div class="dropdown-content">
-                <p>Midsem: 29</p>
-                <p>Endsem: 37</p>
-                <p>Internal: 20</p>
-              </div>
-            </div>
-          </td>
-          <td class="xyz">9</td>
-        </tr>
-        <tr>
-          <td>English and Professional Communication</td>
-          <td class="xyz">
-            <div class="dropdown">
-              <button class="drop">91</button>
-              <div class="dropdown-content">
-                <p>Midsem: 24</p>
-                <p>Endsem: 47</p>
-                <p>Internal: 10</p>
-                <p>Presentation: 10</p>
-              </div>
-            </div>
-          </td>
-          <td class="xyz">1</td>
-        </tr>
-        <tr>
-          <td>Physics of Particles and Nuclei</td>
-          <td class="xyz">
-            <div class="dropdown">
-              <button class="dropbtn">79</button>
-              <div class="dropdown-content">
-                <p>Midsem: 29</p>
-                <p>Endsem: 40</p>
-                <p>Internal: 10</p>
-              </div>
-            </div>
-          </td>
-          <td class="xyz">5</td>
-        </tr>
-        <tr>
-          <td>Workshop Practice</td>
-          <td class="xyz">
-            <div class="dropdown">
-              <button class="drop">81</button>
-              <div class="dropdown-content">
-                <p>Endsem: 49</p>
-                <p>Viva: 13</p>
-                <p>Quiz: 19</p>
-              </div>
-            </div>
-          </td>
-          <td class="xyz">9</td>
-        </tr>
-        <tr>
-          <td>Fundamentals of Computer Programming</td>
-          <td class="xyz">
-            <div class="dropdown">
-              <button class="dropbtn">88</button>
-              <div class="dropdown-content">
-                <p>Midsem: 23</p>
-                <p>Endsem: 46</p>
-                <p>Quiz: 19</p>
-              </div>
-            </div>
-          </td>
-          <td class="xyz">2</td>
-        </tr>
-      </table>
+      <% if (grades.length > 0) { %>
+        <table>
+          <tr>
+            <th>Course</th>
+            <th>Course Coordinator</th>
+            <th class="xyz">Grades</th>
+          </tr>
+          <% for(grade of grades) { %>
+            <tr>
+                <td><%= grade.coursename %></td>
+                <td><%= grade.coursecoordinator %></td>
+                <td><%= grade.grade %></td>
+            </tr>
+          <% } %>
+        </table>
+      <% } %>
     </div>
   </body>
 </html>
